@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My HTML</title>
+  </head>
+  <body>
+    <h1>Header H1</h1>
+    <p style="color: rgba(129, 221, 198, 0.856)">My paragraph1 <br /></p>
+    <p>My paragraph2</p>
+    <h2>Header H2</h2>
+
+    <p>
+      This is the link
+      <a href="https://www.google.com" target="blank"> Google </a>
+    </p>
+    <img
+      src="https://images.unsplash.com/photo-1612151855475-877969f4a6cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80"
+      height="300"
+    />
+
+    <h4>My List</h4>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+    </ul>
+
+    <ol>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ol>
+
+    <table style="border: 2px solid black">
+      <tr>
+        <th>First Column</th>
+        <th>Second Column</th>
+        <th>Third Column</th>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+        <td>Cell 3</td>
+      </tr>
+      <tr>
+        <td>Cell 4</td>
+        <td>Cell 5</td>
+        <td>Cell 6</td>
+      </tr>
+    </table>
+
+    <form>
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" value="Pooh" /><br /><br />
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname" value="Doe" /><br /><br />
+      <label for="gender">Male</label>
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="vehicle1"> I have a bike</label>
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+      <input type="submit" value="Click Here" onclick="msg()" />
+    </form>
+
+    <script>
+      function msg() {
+        alert('Hello world!');
+      }
+    </script>
+  </body>
+</html>
