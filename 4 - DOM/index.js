@@ -37,3 +37,19 @@ var myScriptToggle = () => {
 document
   .getElementById('btn-toggle-class')
   .addEventListener('click', myScriptToggle);
+
+// Counter
+var counter = 0;
+document.querySelector('#btn-counter').addEventListener('click', () => {
+  counter = counter + 1;
+  document.querySelector('#p-counter').innerHTML = counter.toString();
+});
+
+// Input (change)
+var text = '';
+var element = document.getElementById('input-text');
+element.addEventListener('input', (e) => {
+  console.dir(e);
+  text = e.target.value;
+  document.getElementById('p-text').innerHTML = text;
+});
