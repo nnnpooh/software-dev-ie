@@ -62,9 +62,28 @@ const data = [
 ];
 
 // Print ชื่อของทุกคน (ใช้ forEach)
+/* data.forEach((el, idx) => {
+  console.log(idx, el.first_name);
+}); */
 
 // สร้าง Array ที่มีแต่ Object ของคนที่ค่า City ไม่ใช่ Thailand (ใช้ filter)
+/* var dataNew = data.filter( (el) => {return el.city !== 'Thailand'})
+console.log(dataNew)
+ */
 
 // สร้าง Array ที่มี Object ที่มี first_name เป็นตัวเล็ก (ใช้ map)
+/* var dataNew = data.map((el) => {
+  return {
+    id: el.id,
+    first_name: el.first_name.toLowerCase(),
+    city: el.city,
+    age: el.age,
+  };
+});
+console.log(dataNew); */
 
 // รวมอายุทุกคน ใช้ (ใช้ reduce)
+/* var sumAge = data.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue.age;
+}, 0);
+console.log(sumAge); */

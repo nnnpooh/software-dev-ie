@@ -1,55 +1,54 @@
-window.onload = () => {
-  console.log('page is fully loaded');
-};
-
-window.console.dir(window);
+//console.log(window);
+console.dir(window);
 console.dir(window.document);
 console.dir(document);
 
-// Inject content
-document.getElementById('p1').innerHTML = 'My First JavaScript';
+// Change Content
+document.getElementById('p1').innerHTML = 'This is from JavaScript';
 
 // Create element and inject into existing element
 var para = document.createElement('p');
-para.innerHTML = 'This is from javascript';
-var element = document.getElementById('div1');
-element.appendChild(para);
+para.innerHTML = 'This is created from JavaScript';
+document.getElementById('div1').appendChild(para);
 
-// Change inline style
-document.getElementById('p1').style.color = 'red';
-
-// Add CSS class
+// Change class
 var element = document.getElementById('p2');
 element.classList.add('colorful');
 
-// Click event
-document.getElementById('btn-alert').addEventListener('click', myScript);
+// Alert
+var element = document.getElementById('btn-alert');
+element.addEventListener('click', myScript);
 function myScript() {
-  alert('Clicked');
+  alert('Alert');
+  console.log('button clicked');
 }
 
 // Toggle class
-var myScriptToggle = () => {
-  const element = document.getElementById('div-toggle');
-  console.dir(element);
-  element.classList.toggle('toggle-style');
-}; // Note that if I put this below it won't work (no hoisting).
-document
-  .getElementById('btn-toggle-class')
-  .addEventListener('click', myScriptToggle);
+var element = document.getElementById('btn-toggle-class');
+element.addEventListener('click', toggleScript);
+function toggleScript() {
+  var elementP = document.getElementById('p-toggle');
+  elementP.classList.toggle('toggle-style');
+}
 
-// Counter
+//Counter
 var counter = 0;
-document.querySelector('#btn-counter').addEventListener('click', () => {
+var element = document.getElementById('btn-add');
+element.addEventListener('click', addScript);
+function addScript() {
   counter = counter + 1;
-  document.querySelector('#p-counter').innerHTML = counter.toString();
-});
+  //console.log(counter);
+  var elementP = document.getElementById('p-counter');
+  elementP.innerHTML = counter.toString();
+}
 
 // Input (change)
 var text = '';
 var element = document.getElementById('input-text');
-element.addEventListener('input', (e) => {
-  console.dir(e);
-  text = e.target.value;
-  document.getElementById('p-text').innerHTML = text;
-});
+element.addEventListener('input', inputScript);
+function inputScript(event) {
+  // console.dir(event.target.value);
+  var elementP = document.getElementById('p-text');
+  text = event.target.value;
+  elementP.innerText = text;
+}
