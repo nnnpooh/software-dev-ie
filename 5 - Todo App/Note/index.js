@@ -9,15 +9,25 @@ inputElement.addEventListener('input', (e) => {
   inputText = e.target.value;
 });
 
-btnElement.addEventListener('click', () => {
-  data.push({
-    title: inputText,
-    id: Math.floor(Math.random() * 10000),
-    active: true,
-  });
-  inputElement.value = '';
-  renderList();
+inputElement.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    addData();
+  }
 });
+btnElement.addEventListener('click', addData);
+
+function addData() {
+  if (inputText) {
+    data.push({
+      title: inputText,
+      id: Math.floor(Math.random() * 10000),
+      active: true,
+    });
+    inputElement.value = '';
+    inputText = '';
+    renderList();
+  }
+}
 
 function renderList() {
   while (listElement.firstChild) {
@@ -27,8 +37,36 @@ function renderList() {
   data.forEach((el) => {
     const itemElement = document.createElement('li');
     const textClass = el.active ? 'active' : 'inactive';
-    itemElement.setAttribute('id', el.id);
-    itemElement.innerHTML = `<span id="text-${el.id}" class=${textClass}>${el.title}</span> <span id="del-${el.id}" class="delete-btn">x</span>`;
+    const textElement = document.createElement('span');
+    const delElement = document.createElement('span');
+    textElement.classList.add(textClass);
+    textElement.innerHTML = el.title;
+    delElement.classList.add('delete-btn');
+    delElement.innerHTML = 'x';
+    itemElement.appendChild(textElement);
+    itemElement.appendChild(delElement);
     listElement.appendChild(itemElement);
+
+    textElement.addEventListener('click', (e) => {
+      toggleActive(el.id);
+    });
+
+    delElement.addEventListener('click', () => {
+      deleteItem(el.id);
+    });
   });
+}
+
+function toggleActive(id) {
+  const idx = data.findIndex((el) => el.id == id);
+  console.log(id, idx);
+  if (idx > -1) {
+    data[idx] = { ...data[idx], active: !data[idx].active };
+  }
+  renderList();
+}
+
+function deleteItem(id) {
+  data = data.filter((el) => el.id != id);
+  renderList();
 }
