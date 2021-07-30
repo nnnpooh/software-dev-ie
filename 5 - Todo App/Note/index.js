@@ -37,8 +37,8 @@ function renderList() {
   data.forEach((el) => {
     const itemElement = document.createElement('li');
     const textClass = el.active ? 'active' : 'inactive';
-    const textElement = document.createElement('span');
-    const delElement = document.createElement('span');
+    const textElement = document.createElement('div');
+    const delElement = document.createElement('div');
     textElement.classList.add(textClass);
     textElement.innerHTML = el.title;
     delElement.classList.add('delete-btn');
