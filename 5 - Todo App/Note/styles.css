@@ -1,0 +1,22 @@
+.inactive {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.active {
+  color: gray;
+}
+
+.delete-btn {
+  margin-left: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: rgb(161, 161, 161);
+  border-radius: 10px;
+  color: white;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+  background-color: gray;
+}

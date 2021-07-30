@@ -13,6 +13,7 @@ btnElement.addEventListener('click', () => {
   data.push({
     title: inputText,
     id: Math.floor(Math.random() * 10000),
+    active: true,
   });
   inputElement.value = '';
   renderList();
@@ -25,8 +26,9 @@ function renderList() {
 
   data.forEach((el) => {
     const itemElement = document.createElement('li');
+    const textClass = el.active ? 'active' : 'inactive';
     itemElement.setAttribute('id', el.id);
-    itemElement.innerHTML = el.title;
+    itemElement.innerHTML = `<span id="text-${el.id}" class=${textClass}>${el.title}</span> <span id="del-${el.id}" class="delete-btn">x</span>`;
     listElement.appendChild(itemElement);
   });
 }
