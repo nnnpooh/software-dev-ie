@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: 'AIzaSyCYm0u2hUkxzXga9X-OTFJgdg-cP_GEUcE',
+        authDomain: 'software-dev-b0cd9.firebaseapp.com',
+        projectId: 'software-dev-b0cd9',
+        storageBucket: 'software-dev-b0cd9.appspot.com',
+        messagingSenderId: '71485231727',
+        appId: '1:71485231727:web:18688ef883b59c6a0db39a',
+      };
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <button id="btn1">Get Data</button>
+    <button id="btn2">Add Data</button>
+    <button id="btn3">Delete Data</button>
+    <button id="btn4">Update Data</button>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase Basics</title>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD8HkOMlBIM0zYHhIYwDBEXW5-o1QJ__y4",
+        authDomain: "nakornping-2ee45.firebaseapp.com",
+        databaseURL: "https://nakornping-2ee45-default-rtdb.firebaseio.com",
+        projectId: "nakornping-2ee45",
+        storageBucket: "nakornping-2ee45.appspot.com",
+        messagingSenderId: "1079265511490",
+        appId: "1:1079265511490:web:83041f48db940bd16785db",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="https://unpkg.com/vue@next" defer></script>
+
+    <script src="app.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container" id="App">
+      <h1>Contacts</h1>
+      <div class="input-field">
+        <i class="material-icons prefix">account_circle</i>
+        <label for="name">Name</label>
+        <input type="text" id="name" v-model="name" />
+      </div>
+
+      <div class="input-field">
+        <i class="material-icons prefix">email</i>
+        <label for="email">Email</label>
+        <input type="text" id="email" v-model="email" />
+      </div>
+
+      <div class="input-field">
+        <i class="material-icons prefix">dialpad</i>
+        <label for="age">Age</label>
+        <input type="number" id="age" v-model.number="age" />
+      </div>
+
+      <button class="btn" v-on:click="addContact">Submit</button>
+
+      <ul class="collection">
+        <li
+          class="collection-item avatar"
+          v-for="contact in contacts"
+          v-bind:key="contact.id"
+        >
+          <i class="material-icons prefix circle indigo">contact_page</i>
+          <span class="title"><h5>{{contact.name}}</h5></span>
+          <p>
+            Age: {{contact.age}} <br />
+            Email: {{contact.email}} <br />
+            id: {{contact.id}}
+          </p>
+          <a href="#">
+            <i
+              class="material-icons secondary-content grey-text"
+              v-on:click="deleteContact(contact.id)"
+              >delete</i
+            >
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
