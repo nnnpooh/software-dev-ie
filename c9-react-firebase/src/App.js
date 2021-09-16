@@ -27,6 +27,7 @@ function onSnapShotFunction(snapshot, setTodos) {
 
 // Main function
 function App() {
+  // State variables
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState('');
 
@@ -53,6 +54,7 @@ function App() {
     db.collection('todos').doc(id).delete();
   }
 
+  // Sort Array
   const todosSorted = todos.sort((a, b) => a.timestamp - b.timestamp);
 
   console.log(todos);
